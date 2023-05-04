@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Elegir tamaño y sabor del helado</title>
+</head>
+<body>
+	<h1>Elegir tamaño y sabor del helado</h1>
+	<form method="post" action="{% url 'sabor_hielo' %}">
+		{% csrf_token %}
+		<p>Elige el tamaño del helado:</p>
+		<input type="radio" id="pequeno" name="tamanio" value="pequeno">
+		<label for="pequeno">Pequeño (Q15.00)</label><br>
+		<input type="radio" id="mediano" name="tamanio" value="mediano">
+		<label for="mediano">Mediano (Q20.00)</label><br>
+		<input type="radio" id="grande" name="tamanio" value="grande">
+		<label for="grande">Grande (Q24.00)</label><br>
+
+		<p>Elige el sabor del helado:</p>
+		<input type="radio" id="limon" name="sabor[]" value="limon">
+		<label for="limon">Limon</label><br>
+		<input type="radio" id="mango" name="sabor[]" value="mango">
+		<label for="mango">Mango</label><br>
+		<input type="radio" id="coco" name="sabor[]" value="coco">
+		<label for="coco">Coco</label><br>
+
+        <p>¿Deseas añadir Topping?:</p>
+		<label for="topping">Topping:</label>
+		<select name="topping" id="topping">
+            <option value="no aplica">Sin topping</option>
+			<option value="chispas de chocolate">Chispas de chocolate (Q5.00)</option>
+			<option value="anillos">Anillos (Q3.00)</option>
+			<option value="crema batida">Crema batida (Q7.00)</option>
+			<option value="chocolate líquido">Chocolate líquido (Q5.00)</option>
+		</select><br><br>
+
+
+		<input type="submit" value="Continuar">
+        <input type="button" value="Resetear" onclick="this.form.reset()">
+        <p> </p>
+        <p> </p>
+        <a href="{% url 'index' %}" class="btn btn-primary">Ir a Home</a>
+	</form>
+</body>
+</html>
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Selección de sabores de helado</title>
+</head>
+<body>
+	<h1>Selección de sabores de helado</h1>
+	<p>Selecciona la cantidad de bolas de helado y los sabores:</p>
+	<form method="post" action="{% url 'sabor_cremoso' %}">
+		{% csrf_token %}
+		<label for="cantidad">Cantidad de bolas:</label>
+		<select id="cantidad" name="cantidad">
+			<option value="1">1 bola (Q15.00)</option>
+			<option value="2">2 bolas (Q20.00)</option>
+			<option value="3">3 bolas (Q24.00)</option>
+		</select><br><br>
+
+		<label for="sabor1">Sabor bola 1:</label>
+		<select id="sabor1" name="sabor1">
+			<option value="chocolate">Chocolate</option>
+			<option value="vainilla">Vainilla</option>
+			<option value="fresa">Fresa</option>
+		</select><br><br>
+
+		<label for="sabor2">Sabor bola 2:</label>
+		<select id="sabor2" name="sabor2">
+			<option value="" selected>Selecciona un sabor</option>
+			<option value="chocolate">Chocolate</option>
+			<option value="vainilla">Vainilla</option>
+			<option value="fresa">Fresa</option>
+		</select><br><br>
+
+		<label for="sabor3">Sabor bola 3:</label>
+		<select id="sabor3" name="sabor3">
+			<option value="" selected>Selecciona un sabor</option>
+			<option value="chocolate">Chocolate</option>
+			<option value="vainilla">Vainilla</option>
+			<option value="fresa">Fresa</option>
+		</select><br><br>
+
+        <p>¿Deseas añadir Topping?:</p>
+		<label for="topping">Topping:</label>
+		<select name="topping" id="topping">
+            <option value="no aplica">Sin topping</option>
+			<option value="chispas de chocolate">Chispas de chocolate (Q5.00)</option>
+			<option value="anillos">Anicillos (Q3.00)</option>
+			<option value="crema batida">Crema batida (Q7.00)</option>
+			<option value="chocolate líquido">Chocolate líquido (Q5.00)</option>
+		</select><br><br>
+
+		<input type="submit" value="Continuar">
+        <input type="button" value="Resetear" onclick="this.form.reset()">
+        <p> </p>
+        <p> </p>
+        <a href="{% url 'index' %}" class="btn btn-primary">Ir a Home</a>
+
+	</form>
+</body>
+</html>

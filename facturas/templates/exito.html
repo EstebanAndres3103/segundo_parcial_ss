@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Compra Exitosa</title>
+</head>
+<body>
+    {% csrf_token %}
+	<h1>¡Compra Exitosa!</h1>
+	<p>Su compra ha sido realizada con éxito.</p>
+	<a href="{% url 'index' %}" class="btn btn-primary">Aceptar</a>
+
+</body>
+</html>

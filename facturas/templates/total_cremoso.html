@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Esta es su orden</title>
+</head>
+<body>
+    <form method="POST" action="{% url 'registro' %}">
+        {% csrf_token %}
+        <h1>Su orden </h1>
+        <p> Helado: {{ tipo }}</p>
+        <p> Número de bolas: {{ bolas }} bolas de helado, costo Q{{ tam }}.00</p>
+        <p> Topping: {{ top }}, costo Q{{ top_ }}.00</p>
+        <font color="Red" size="4">
+        <p> Su total es  Q{{ total }}.00</p>
+        </font>
+        <input type="submit" value="Pagar">
+        <p> </p>
+        <p> </p>
+        <a href="{% url 'index' %}" class="btn btn-primary">Cancelar</a>
+        
+        <input type="hidden" name="top" value="{{ top }}">
+        <input type="hidden" name="precio_top" value="{{ top_ }}">
+        <input type="hidden" name="tipo" value="{{ tipo }}">
+        <input type="hidden" name="tamano" value="{{ bolas }}">
+        <input type="hidden" name="tam" value="{{ tam }}">
+        <input type="hidden" name="sabor" value="{{ sabor }}">
+    </form>
+</body>
+</html>
